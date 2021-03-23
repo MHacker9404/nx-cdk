@@ -1,10 +1,74 @@
 {
-  
-  
-  "version": 2,
-  
-  "projects": {},
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "version": 2,
+    "projects": {
+        "ecs-repo-branch": {
+            "projectType": "application",
+            "root": "apps/ecs-repo-branch",
+            "sourceRoot": "apps/ecs-repo-branch/src",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "cwd": "apps/ecs-repo-branch",
+                        "commands": ["npx ts-node --prefer-ts-exts src/main.ts"]
+                    }
+                },
+                "destroy": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "cwd": "apps/ecs-repo-branch",
+                        "commands": [
+                            {
+                                "command": "cdk destroy"
+                            }
+                        ]
+                    }
+                },
+                "deploy": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "cwd": "apps/ecs-repo-branch",
+                        "commands": [
+                            {
+                                "command": "cdk deploy"
+                            }
+                        ]
+                    }
+                },
+                "synth": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "cwd": "apps/ecs-repo-branch",
+                        "commands": [
+                            {
+                                "command": "cdk synth"
+                            }
+                        ]
+                    }
+                },
+                "cdk-list": {
+                    "executor": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "cwd": "apps/ecs-repo-branch",
+                        "commands": [
+                            {
+                                "command": "cdk list"
+                            }
+                        ]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/ecs-repo-branch"],
+                    "options": {
+                        "jestConfig": "apps/ecs-repo-branch/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        }
+    },
+    "cli": {
+        "defaultCollection": "@nrwl/workspace"
+    }
 }

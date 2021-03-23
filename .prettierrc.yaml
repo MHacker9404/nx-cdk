@@ -1,0 +1,17 @@
+# .prettierrc or .prettierrc.yaml
+trailingComma: 'es5'
+printWidth: 125
+tabWidth: 4
+semi: true
+singleQuote: true
+jsxSingleQuote: true
+overrides:
+  - files: '*.ts'
+    options:
+      parser: babel-ts
+  - files:
+      - '*.yml'
+      - '*.yaml'
+    options:
+      tabWidth: 2
+      parser: yaml
