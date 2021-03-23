@@ -1,4 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+# yarn berry
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
 
 # compiled output
 /dist
